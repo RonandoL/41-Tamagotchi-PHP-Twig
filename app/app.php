@@ -15,16 +15,16 @@
     ));
   // End Red Tape
 
-  // 1. Route for home page
+    // GET ROUTE for home page
     $app->get('/', function() use ($app) {
-        
+        return $app['twig']->render('tamagotchis.html.twig', array('tamagotchis' => Tamagotchi::getAll()));
     });
 
-  // 2. Route for sending instantiated new object (new task) to /tasks URL
+    // 2. Route for sending instantiated new object (new task) to /tasks URL
 
 
-  // 3. Route for deleting all tasks
-    $app
+    // 3. Route for deleting all tasks
+    // $app
 
     return $app;
 
