@@ -30,12 +30,16 @@
       </div>  <!-- .row -->
 
       <div class='row'>
-          <div class='col-md-3'>
+          <div class='col-md-6'>
               <hr>
+                  {% for tamagotchi in tamagotchis %}
+                      <div class="pet">
+                  <h3>{{ tamagotchi.getName }}</h3>
+                      </div>
+                  {% endfor %}
 
-              <!-- TWIG STUFF GOES HERE -->
 
-          </div>
+          </div>  <!-- .col-md-6 -->
       </div>  <!-- .row -->
     </div>  <!-- .container -->
 

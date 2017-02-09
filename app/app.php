@@ -20,8 +20,13 @@
         return $app['twig']->render('tamagotchis.html.twig', array('tamagotchis' => Tamagotchi::getAll()));
     });
 
-    // 2. Route for sending instantiated new object (new task) to /tasks URL
+    // INSTANTIATION of new pet , grabbing user name input, ROUTE sends new object to /new-pet URL
+    $app->post('/new-pet', function() use ($app) {
+        $new_pet = new Tamagotchi(ucfirst($_POST['name']));
+        $new_pet->save();  // save new pet name
 
+        return $app['twig']->render('tamagotchis.html.twig', array('tamagotchis' => Tamagotchi::getAll()));
+    });
 
     // 3. Route for deleting all tasks
     // $app
