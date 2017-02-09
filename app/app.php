@@ -28,8 +28,11 @@
         return $app['twig']->render('tamagotchis.html.twig', array('tamagotchis' => Tamagotchi::getAll()));
     });
 
-    // 3. Route for deleting all tasks
-    // $app
+    // DELETE ALL PETS
+    $app->post('/delete', function() use ($app) {
+      Tamagotchi::deleteAll();
+      return $app['twig']->render('delete.html.twig');
+    });
 
     return $app;
 
