@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <title>xxxxxxxx</title>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css'>
+    <link rel='stylesheet' href='/css/styles.css'>  <!-- Why does this css mapping work???? -->
+  </head>
+
+  <body>
+
+    <div class='container'>
+      <div class='row'>
+        <div class='col-md-4'>
+          <h2>xxxxxxxx xxxxxxxx</h2>
+
+          <form action='/tasks' method='post'>
+            <div class='form-group'>
+              <label for='task'>Enter xxxxxxxx</label>
+              <input type='text' name='task' id='task' class='form-control' placeholder='Personal Slave'>
+            </div>
+            <button type='submit' class='btn btn-sm btn-primary'>Submit Task</button>
+          </form>
+
+          <br>
+          <form action='/delete' method='post'>
+            <button type='submit' class='btn btn-sm'>Delete All Tasks</button>
+          </form>
+
+        </div>  <!-- .col-md-3 -->
+      </div>  <!-- .row -->
+
+      <div class='row'>
+          <div class='col-md-3'>
+              <hr>
+
+              <!-- TWIG STUFF GOES HERE -->
+
+          </div>
+      </div>  <!-- .row -->
+    </div>  <!-- .container -->
+
+  </body>
+</html>
