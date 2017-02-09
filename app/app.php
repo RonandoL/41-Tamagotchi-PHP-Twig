@@ -29,9 +29,9 @@
     });
 
     // DELETE ALL PETS
-    $app->post('/delete', function() use ($app) {
+    $app->post('/', function() use ($app) {
       Tamagotchi::deleteAll();
-      return $app['twig']->render('delete.html.twig');
+      return $app['twig']->render('tamagotchis.html.twig');
     });
 
     return $app;
