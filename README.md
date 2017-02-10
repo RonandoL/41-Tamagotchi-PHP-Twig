@@ -1,80 +1,43 @@
 # Project Title
 
-One Paragraph of project description goes here
+Tamagotchi  giga pet app. User creates pets by entering in names and maintains food, happiness and sleep to keep pets alive. Pet will eventually die of old age though.
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+Plug and play. Works using php -S localhost:8000.
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
 
 ```
-Give examples
+To install files, make sure you run "composer install" in your projects root directory
 ```
-
-### Installing
-
-A step by step series of examples that tell you have to get a development env running
-
-Say what the step will be
-
-```
-Give the example
-```
-
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
 
 ## Running the tests
 
-Explain how to run the automated tests for this system
+Pretty simple, just load, install composer and it should work...unless I forgot something.
 
 ### Break down into end to end tests
 
-Explain what these tests test and why
+...nahh, not feelin' it right now
 
 ```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
+Good luck
 ```
 
 ## Deployment
 
-Add additional notes about how to deploy this on a live system
+No additional notes
 
 ## Built With
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
-
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags).
+* [Composer](https://getcomposer.org/) - Development Tool
+* [Silex](http://silex.sensiolabs.org/development) - PHP Micro-framework
+* [Brute force and awkwardness](https://github.com/RonandoL) - With blood, sweat and tears...a lot of tears
 
 ## Authors
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+* **Ronando** - *Initial work* - [41-Tamagotchi-PHP-Twig](https://github.com/RonandoL/41-Tamagotchi-PHP-Twig)
 
 ## License
 
