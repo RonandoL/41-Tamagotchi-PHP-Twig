@@ -49,7 +49,8 @@
                       {% if tamagotchi.checkLife %}
                           <div class="col-md-8">
                             <h3>{{ tamagotchi.getName }}</h3>
-                            <h5>Age: {{ tamagotchi.getAge }} | Food: {{ tamagotchi.getFeed }} | Happiness: {{ tamagotchi.getHappiness }} | Sleep: {{ tamagotchi.getSleep }} </h5>
+                            <h5>Age: {{ tamagotchi.getAge }}</h5>
+                            <h5>Food: {{ tamagotchi.getFeed }} &nbsp; &nbsp; | &nbsp; &nbsp; Happiness: {{ tamagotchi.getHappiness }} &nbsp; &nbsp; | &nbsp; &nbsp; Sleep: {{ tamagotchi.getSleep }} </h5>
 
                             <div class="row">
                               <div class="col-md-4">
@@ -71,14 +72,18 @@
 
                           </div>
                           <div class="col-md-4">
-                            <!-- image goes here -->
+                            {% if tamagotchi.getAge >= 14 or tamagotchi.getFeed <= 2 or tamagotchi.getHappiness <= 2 or tamagotchi.getSleep <= 2%}
+                                <img src='http://orig00.deviantart.net/774e/f/2008/304/9/6/pokebaw___charmander_by_pokemon_walrus.png'>
+                            {% else %}
+                                <img src='http://pre02.deviantart.net/79f7/th/pre/i/2012/154/2/4/proud_charmander_by_kol98-d525yi2.png'>
+                            {% endif %}
                           </div>
                       {% else %}
                           <div class="col-md-8">
                             <h3>OMG! You killed {{ tamagotchi.getName }}</h3>
                           </div>
                           <div class="col-md-4">
-
+                            <img src='http://orig14.deviantart.net/00e5/f/2012/350/5/7/sleeping_charmander_by_pekoponian-d5o9txk.png'>
                           </div>
                       {% endif %}
                     </div>  <!-- .row -->
