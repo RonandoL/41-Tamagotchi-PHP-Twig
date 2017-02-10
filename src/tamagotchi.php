@@ -30,21 +30,22 @@
             $this->age += 1;
             $this->feed -=1;
             $this->happiness -= rand(1, 2);
+            $this->sleep -= rand(1, 2);
         }
 
         function feed()
         {
-            $this->feed += rand(1, 3);
+            $this->feed += rand(4, 6);
         }
 
         function happiness()
         {
-            $this->happiness += rand(1, 3);
+            $this->happiness += rand(3, 8);
         }
 
         function sleep()
         {
-            $this->sleep += rand(2, 3);
+            $this->sleep += rand(5, 9);
         }
 
         // Getters ------------------------

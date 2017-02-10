@@ -65,6 +65,18 @@
         }
       }
       Tamagotchi::ageAll();
+
+      return $app['twig']->render('tamagotchis.html.twig', array('tamagotchis' => Tamagotchi::getAll()));
+    });
+
+    // SLEEP ONE PET
+    $app->post('/sleep', function() use ($app) {
+      foreach ($_SESSION['list_of_tamagotchis'] as $tamagotchi) {
+        if ($tamagotchi->getName() == $_POST['name']) {
+          $tamagotchi->sleep();
+        }
+      }
+      Tamagotchi::ageAll();
       
       return $app['twig']->render('tamagotchis.html.twig', array('tamagotchis' => Tamagotchi::getAll()));
     });

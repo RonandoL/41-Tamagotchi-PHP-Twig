@@ -47,7 +47,7 @@
                     <div class='row'>
                         <div class="col-md-7">
                           <h3>{{ tamagotchi.getName }}</h3>
-                          <h5>Age: {{ tamagotchi.getAge }} | Food: {{ tamagotchi.getFeed }} | Happiness: {{ tamagotchi.getHappiness }} | Sleep: # </h5>
+                          <h5>Age: {{ tamagotchi.getAge }} | Food: {{ tamagotchi.getFeed }} | Happiness: {{ tamagotchi.getHappiness }} | Sleep: {{ tamagotchi.getSleep }} </h5>
                         </div>
                         <div class="col-md-5">
                           <!-- image goes here -->
@@ -66,7 +66,7 @@
                         </form>
                       </div>
                       <div class="col-md-3">
-                        <form action='/nap' method='post'>
+                        <form action='/sleep' method='post'>
                           <button type='submit' name='name' class='btn btn-sm btn-primary' value='{{ tamagotchi.getName }}'>Nap {{ tamagotchi.getName }}</button>
                         </form>
                       </div>
