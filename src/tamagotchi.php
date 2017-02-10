@@ -3,14 +3,51 @@
     {
         private $name;
         private $age;
+        private $feed;
+        private $happiness;
+        private $sleep;
 
         function __construct($name)
         {
             $this->name = $name;
             $this->age = 1;
+            $this->feed = rand(3, 8);
+            $this->happiness = rand(4, 10);
+            $this->sleep = rand(3, 8);
         }
 
-        // Getters
+        // AGE ALL Pets - Class method - for any given button action
+        static function ageAll()
+        {
+            foreach ($_SESSION['list_of_tamagotchis'] as $tamagotchi) {
+              $tamagotchi->age();
+            }
+        }
+
+        // Button Actions
+        function age()
+        {
+            $this->age += 1;
+            $this->feed -=1;
+            $this->happiness -= rand(1, 2);
+        }
+
+        function feed()
+        {
+            $this->feed += rand(1, 3);
+        }
+
+        function happiness()
+        {
+            $this->happiness += rand(1, 3);
+        }
+
+        function sleep()
+        {
+            $this->sleep += rand(2, 3);
+        }
+
+        // Getters ------------------------
         function getName()
         {
             return $this->name;
@@ -21,12 +58,22 @@
             return $this->age;
         }
 
-        function age()
+        function getFeed()
         {
-            $this->age += 1;
+            return $this->feed;
         }
 
-        // Standards
+        function getHappiness()
+        {
+            return $this->happiness;
+        }
+
+        function getSleep()
+        {
+            return $this->sleep;
+        }
+
+        // Standards ------------------------
         function save()
         {
             array_push($_SESSION['list_of_tamagotchis'], $this);
@@ -43,9 +90,6 @@
         {
             $_SESSION['list_of_tamagotchis'] = array();
         }
-
-
-
 
     }
 

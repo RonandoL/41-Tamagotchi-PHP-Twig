@@ -45,6 +45,31 @@
         return $app['twig']->render('tamagotchis.html.twig', array('tamagotchis' => Tamagotchi::getAll()));
     });
 
+    // FEED ONE PET
+    $app->post('/feed', function() use ($app) {
+        foreach ($_SESSION['list_of_tamagotchis'] as $tamagotchi) {
+          if ($tamagotchi->getName() == $_POST['name']) {
+            $tamagotchi->feed();
+          }
+        }
+        Tamagotchi::ageAll();
+
+        return $app['twig']->render('tamagotchis.html.twig', array('tamagotchis' => Tamagotchi::getAll()));
+    });
+
+    // PLAY WITH ONE PET - Happiness
+    $app->post('/play', function() use ($app) {
+      foreach ($_SESSION['list_of_tamagotchis'] as $tamagotchi) {
+        if ($tamagotchi->getName() == $_POST['name']) {
+          $tamagotchi->happiness();
+        }
+      }
+      Tamagotchi::ageAll();
+      
+      return $app['twig']->render('tamagotchis.html.twig', array('tamagotchis' => Tamagotchi::getAll()));
+    });
+
+
     return $app;
 
 ?>

@@ -41,16 +41,39 @@
               <h4>Here your pets brah, handle with care</h4>
           {% endif %}
 
-            {% for tamagotchi in tamagotchis %}
-                    {% if tamagotchi.getName is not empty %}
-                        <div class='row'>
-                            <div class='col-md-12 pet'>
-                                <h3>{{ tamagotchi.getName }}</h3>
-                                <h4>{{ tamagotchi.getAge }}</h4>
-                            </div>
-                        </div>  <!-- .row -->
-                    {% endif %}
-            {% endfor %}
+          {% for tamagotchi in tamagotchis %}
+              {% if tamagotchi.getName is not empty %}
+                  <div class="pet">
+                    <div class='row'>
+                        <div class="col-md-7">
+                          <h3>{{ tamagotchi.getName }}</h3>
+                          <h5>Age: {{ tamagotchi.getAge }} | Food: {{ tamagotchi.getFeed }} | Happiness: {{ tamagotchi.getHappiness }} | Sleep: # </h5>
+                        </div>
+                        <div class="col-md-5">
+                          <!-- image goes here -->
+                        </div>
+                    </div>  <!-- .row -->
+
+                    <div class="row">
+                      <div class="col-md-3">
+                        <form action='/feed' method='post'>
+                          <button type='submit' name='name' class='btn btn-sm btn-primary' value='{{ tamagotchi.getName }}'>Feed {{ tamagotchi.getName }}</button>
+                        </form>
+                      </div>
+                      <div class="col-md-3">
+                        <form action='/play' method='post'>
+                          <button type='submit' name='name' class='btn btn-sm btn-primary' value='{{ tamagotchi.getName }}'>Play with {{ tamagotchi.getName }}</button>
+                        </form>
+                      </div>
+                      <div class="col-md-3">
+                        <form action='/nap' method='post'>
+                          <button type='submit' name='name' class='btn btn-sm btn-primary' value='{{ tamagotchi.getName }}'>Nap {{ tamagotchi.getName }}</button>
+                        </form>
+                      </div>
+                    </div>  <!-- .row -->
+                  </div>
+              {% endif %}
+          {% endfor %}
 
 
         </div>  <!-- .col-md-6 -->
