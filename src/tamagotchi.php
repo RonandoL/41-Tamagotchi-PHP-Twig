@@ -6,6 +6,7 @@
         private $feed;
         private $happiness;
         private $sleep;
+        private $life;
 
         function __construct($name)
         {
@@ -14,6 +15,7 @@
             $this->feed = rand(3, 8);
             $this->happiness = rand(4, 10);
             $this->sleep = rand(3, 8);
+            $this->life = true;
         }
 
         // AGE ALL Pets - Class method - for any given button action
@@ -22,6 +24,14 @@
             foreach ($_SESSION['list_of_tamagotchis'] as $tamagotchi) {
               $tamagotchi->age();
             }
+        }
+
+        function checkLife()
+        {
+            if ($this->age > 15 || $this->feed <= 0 || $this->happiness <= 0 || $this->sleep <= 0) {
+              $this->life = false;
+            }
+            return $this->life;
         }
 
         // Button Actions
@@ -72,6 +82,11 @@
         function getSleep()
         {
             return $this->sleep;
+        }
+
+        function getLife()
+        {
+            return $this->life;
         }
 
         // Standards ------------------------

@@ -10,13 +10,13 @@
   <body>
     <div class='container'>
       <div class='row'>
-        <div class='col-md-4'>
+        <div class='col-md-6'>
           <h2>Tamagotchi Pets</h2>
 
           <form action='/new-pet' method='post'>
             <div class='form-group'>
               <label for='name'>Enter New Pet Name</label>
-              <input type='text' name='name' id='name' class='form-control' placeholder='e.g. Gadi Bu Dow Mumu'>
+              <input type='text' name='name' id='name' class='form-control' placeholder='e.g. Gadi Bu Dow Mumu' maxlength='7'>
             </div>
             <button type='submit' class='btn btn-sm btn-primary'>Create New Pet</button>
           </form>
@@ -30,7 +30,7 @@
       </div>  <!-- .row -->
 
       <div class='row'>
-        <div class='col-md-6'>
+        <div class='col-md-7'>
           <hr>
           {% if tamagotchis is empty %}
               <h4>You have no pets hommie, time to make some</h4>
@@ -41,35 +41,46 @@
               <h4>Here your pets brah, handle with care</h4>
           {% endif %}
 
+          <!-- Pet Div -->
           {% for tamagotchi in tamagotchis %}
               {% if tamagotchi.getName is not empty %}
                   <div class="pet">
                     <div class='row'>
-                        <div class="col-md-7">
-                          <h3>{{ tamagotchi.getName }}</h3>
-                          <h5>Age: {{ tamagotchi.getAge }} | Food: {{ tamagotchi.getFeed }} | Happiness: {{ tamagotchi.getHappiness }} | Sleep: {{ tamagotchi.getSleep }} </h5>
-                        </div>
-                        <div class="col-md-5">
-                          <!-- image goes here -->
-                        </div>
-                    </div>  <!-- .row -->
+                      {% if tamagotchi.checkLife %}
+                          <div class="col-md-8">
+                            <h3>{{ tamagotchi.getName }}</h3>
+                            <h5>Age: {{ tamagotchi.getAge }} | Food: {{ tamagotchi.getFeed }} | Happiness: {{ tamagotchi.getHappiness }} | Sleep: {{ tamagotchi.getSleep }} </h5>
 
-                    <div class="row">
-                      <div class="col-md-3">
-                        <form action='/feed' method='post'>
-                          <button type='submit' name='name' class='btn btn-sm btn-primary' value='{{ tamagotchi.getName }}'>Feed {{ tamagotchi.getName }}</button>
-                        </form>
-                      </div>
-                      <div class="col-md-3">
-                        <form action='/play' method='post'>
-                          <button type='submit' name='name' class='btn btn-sm btn-primary' value='{{ tamagotchi.getName }}'>Play with {{ tamagotchi.getName }}</button>
-                        </form>
-                      </div>
-                      <div class="col-md-3">
-                        <form action='/sleep' method='post'>
-                          <button type='submit' name='name' class='btn btn-sm btn-primary' value='{{ tamagotchi.getName }}'>Nap {{ tamagotchi.getName }}</button>
-                        </form>
-                      </div>
+                            <div class="row">
+                              <div class="col-md-4">
+                                <form action='/feed' method='post'>
+                                  <button type='submit' name='name' class='btn btn-sm btn-primary' value='{{ tamagotchi.getName }}'>Feed {{ tamagotchi.getName }}</button>
+                                </form>
+                              </div>
+                              <div class="col-md-4">
+                                <form action='/play' method='post'>
+                                  <button type='submit' name='name' class='btn btn-sm btn-primary' value='{{ tamagotchi.getName }}'>Play w/{{ tamagotchi.getName }}</button>
+                                </form>
+                              </div>
+                              <div class="col-md-4">
+                                <form action='/sleep' method='post'>
+                                  <button type='submit' name='name' class='btn btn-sm btn-primary' value='{{ tamagotchi.getName }}'>Nap {{ tamagotchi.getName }}</button>
+                                </form>
+                              </div>
+                            </div>  <!-- .row -->
+
+                          </div>
+                          <div class="col-md-4">
+                            <!-- image goes here -->
+                          </div>
+                      {% else %}
+                          <div class="col-md-8">
+                            <h3>OMG! You killed {{ tamagotchi.getName }}</h3>
+                          </div>
+                          <div class="col-md-4">
+
+                          </div>
+                      {% endif %}
                     </div>  <!-- .row -->
                   </div>
               {% endif %}
