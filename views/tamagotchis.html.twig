@@ -30,23 +30,30 @@
       </div>  <!-- .row -->
 
       <div class='row'>
-          <div class='col-md-6'>
-              <hr>
-                  {% if tamagotchis is not empty %}
-                      <h4>Your pets, handle with care brah</h4>
-                      {% for tamagotchi in tamagotchis %}
-                          {% if tamagotchi.getName is not empty %}
-                              <div class='row'>
-                                  <div class='col-md-6 pet'>
-                                      <h3>{{ tamagotchi.getName }}</h3>
-                                  </div>
-                              </div>  <!-- .row -->
-                          {% endif %}
-                      {% endfor %}
-                  {% endif %}
+        <div class='col-md-6'>
+          <hr>
+          {% if tamagotchis is empty %}
+              <h4>You have no pets hommie, time to make some</h4>
+          {% else %}
+              <form action='/age' method='post'>
+                <button type='submit' name='age' class='btn btn-sm btn-success'>Age All Pets 1 Day</button>
+              </form>
+              <h4>Here your pets brah, handle with care</h4>
+          {% endif %}
+
+            {% for tamagotchi in tamagotchis %}
+                    {% if tamagotchi.getName is not empty %}
+                        <div class='row'>
+                            <div class='col-md-12 pet'>
+                                <h3>{{ tamagotchi.getName }}</h3>
+                                <h4>{{ tamagotchi.getAge }}</h4>
+                            </div>
+                        </div>  <!-- .row -->
+                    {% endif %}
+            {% endfor %}
 
 
-          </div>  <!-- .col-md-6 -->
+        </div>  <!-- .col-md-6 -->
       </div>  <!-- .row -->
     </div>  <!-- .container -->
 

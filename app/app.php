@@ -30,8 +30,19 @@
 
     // DELETE ALL PETS
     $app->post('/', function() use ($app) {
-      Tamagotchi::deleteAll();
+        Tamagotchi::deleteAll();
       return $app['twig']->render('tamagotchis.html.twig');
+    });
+
+    // AGE ALL PETS one day
+    $app->post('/age', function() use ($app) {
+        $tamagotchis = Tamagotchi::getAll();
+
+        foreach ($tamagotchis as $tamagotchi) {
+          $tamagotchi->age();
+        }
+
+        return $app['twig']->render('tamagotchis.html.twig', array('tamagotchis' => Tamagotchi::getAll()));
     });
 
     return $app;
